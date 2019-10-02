@@ -1,6 +1,6 @@
-var/*/*
+/var/*/*
 .idea
-
+!var/.gitkeep
 
 # Cache and logs (Symfony2)
 /app/cache/*
