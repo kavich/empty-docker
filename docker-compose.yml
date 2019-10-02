@@ -1,0 +1,23 @@
+version: "3"
+services:
+  web:
+    image: webdevops/php-apache-dev:ubuntu-18.04
+    volumes:
+      - ./app:/app
+    ports:
+      - "8091:80"
+    depends_on:
+      - db
+    env_file:
+      - ./docker-compose.env
+  db:
+    image: percona/percona-server
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+      - ./data/mysql_cnf:/etc/my.cnf.d
+    env_file:
+      - ./docker-compose.env
+  adminer:
+    image: adminer
+    ports:
+      - 8092:8080
